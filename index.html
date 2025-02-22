@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>استبيان العائلات المتضررة</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h2>استبيان العائلات المتضررة في قرية البويضة الشرقية</h2>
+
+    <p>رقم اضبارة: <span id="caseNumber">جارٍ توليد الرقم...</span></p>
+
+    <form id="surveyForm" action="https://formsubmit.co/rawandema98@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="استبيان جديد - قرية البويضة الشرقية">
+        <input type="hidden" name="_autoresponse" value="تم استلام استبيانك بنجاح! سنتواصل معك قريبًا.">
+        <input type="hidden" name="_template" value="table">
+
+        <label>اسم رب الأسرة:</label>
+        <input type="text" name="father_name" required><br><br>
+
+        <label>تاريخ ميلاد رب الأسرة:</label>
+        <input type="date" name="father_birthdate" required><br><br>
+
+        <label>ما طبيعة عمل رب الأسرة؟</label>
+        <input type="text" name="father_job"><br><br>
+
+        <label>اسم الزوجة:</label>
+        <input type="text" name="mother_name" required><br><br>
+
+        <label>تاريخ ميلاد الزوجة:</label>
+        <input type="date" name="mother_birthdate" required><br><br>
+
+        <label>هل الزوجة تعمل؟</label>
+        <select name="wife_works" onchange="toggleWifeJob()">
+            <option value="لا">لا</option>
+            <option value="نعم">نعم</option>
+        </select><br><br>
+
+        <div id="wifeJobField" class="hidden">
+            <label>ما طبيعة عمل الزوجة؟</label>
+            <input type="text" name="wife_job"><br><br>
+        </div>
+
+        <label>عدد أفراد العائلة:</label>
+        <input type="number" name="family_members" min="1" required><br><br>
+
+        <label>مكان الإقامة السابق:</label>
+        <input type="text" name="previous_residence" required><br><br>
+
+        <label>رقم العائلة للتواصل على الواتساب:</label>
+        <input type="tel" name="family_whatsapp" required placeholder="مثال: 09XXXXXXXX"><br><br>
+
+        <label>هل لديكم ألواح طاقة شمسية؟</label>
+        <select name="solar_panels" required>
+            <option value="نعم">نعم</option>
+            <option value="لا">لا</option>
+        </select><br><br>
+
+        <label>هل المنزل الحالي خيمة أم منزل ثابت؟</label>
+        <select name="house_type" required>
+            <option value="خيمة">خيمة</option>
+            <option value="منزل ثابت">منزل ثابت</option>
+        </select><br><br>
+
+        <label>كيف حال المنزل القديم؟</label>
+        <select name="old_house_condition" required>
+            <option value="مهدم جزئيًا">مهدم جزئيًا</option>
+            <option value="مهدم كليًا">مهدم كليًا</option>
+        </select><br><br>
+
+        <label>هل يوجد أفراد ذوي احتياجات خاصة؟</label>
+        <select name="special_needs" onchange="toggleSpecialNeeds()">
+            <option value="لا">لا</option>
+            <option value="نعم">نعم</option>
+        </select><br><br>
+
+        <div id="specialNeedsField" class="hidden">
+            <label>كم عدد الأفراد ذوي الاحتياجات الخاصة؟</label>
+            <input type="number" name="special_needs_count" min="1" max="10"><br><br>
+        </div>
+
+        <label>ملاحظات إضافية:</label>
+        <textarea name="additional_notes" rows="4"></textarea><br><br>
+
+        <button type="submit">إرسال</button>
+    </form>
+
+    <div id="caseNumberBox" class="case-number-box">
+        <p>رقم اضبارة العائلة: <span id="finalCaseNumber"></span></p>
+        <p>يرجى الاحتفاظ بهذا الرقم لمراجعتنا.</p>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
